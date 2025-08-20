@@ -1,28 +1,22 @@
-# Frontend React (TypeScript) – Gestión de Tareas Colaborativas
+# Frontend React (JS) para TareasYa
 
-Listo para consumir un backend en Node/Express/Mongo bajo `/api/tasks`.
+Conecta con tu backend Express (rutas bajo `/TareasYa`).
 
-## Variables de entorno
+## Endpoints usados
+- `GET    /TareasYa/getall`
+- `GET    /TareasYa/get/:estado`
+- `POST   /TareasYa/postTarea` (body: `{ titulo, descripcion, fechaLimite, responsable }`)
+- `PATCH  /TareasYa/patch/:nombreTarea` (body: `{ nuevoEstado }`)
+
+## Configuración
 Crea `.env`:
 ```
-VITE_API_BASE_URL=http://localhost:3000/api
+VITE_API_BASE_URL=http://localhost:5500/TareasYa
 ```
 
-## Instalar y ejecutar
+## Iniciar
 ```bash
 npm install
 npm run dev
 ```
-
-## Endpoints esperados (backend)
-- `GET    /api/tasks` (opcional `?status=pendiente|en_progreso|completada`)
-- `POST   /api/tasks`
-- `PUT    /api/tasks/:id`
-- `PATCH  /api/tasks/:id/status`
-- `DELETE /api/tasks/:id`
-
-Configura CORS en tu backend:
-```js
-import cors from 'cors';
-app.use(cors({ origin: process.env.FRONTEND_ORIGIN, credentials: true }));
-```
+Abre `http://localhost:5173`.
